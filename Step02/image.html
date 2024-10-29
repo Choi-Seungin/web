@@ -7,6 +7,32 @@
 </head>
 <body>
   <!-- src : 이미지 경로, alt : 대체 텍스트 -->
+  <!-- 상대경로 : 현재 html파일을 기준으로 해당 파일에 접근하는 경로 -->
   <img src="img/bike.jpg" alt="자전거 이미지">
+  <hr>
+  <!-- width : 이미지 가로길이, height : 이미지 세로길이
+   가로나 세로 길이 하나만 지정하면, 나머지 다른 방향 길이는 비율에 맞춰서 조정 -->
+  <img src="img/bike.jpg" alt="자전거 이미지" width="300">
+  <img src="img/bike.jpg" alt="자전거 이미지" height="300">
+  <hr>
+  <!-- .. 은 상위 폴더로 이동한다는 의미 -->
+  <!-- 새로 받은 이미지를 출력 -->
+  <img src="../resource/img/cats.jpg" alt="고양이 이미지">
+  <!-- . -->
+  <img src="./img/bike.jpg" alt="자전거 이미지">
+  <!-- 절대 경로 : 현재 파일 시스템(또는 웹서버에서 지정한 폴더)에서 ROOT폴더 기준으로 원하는 파일의 경로까지 접근하는 방법 -->
+  <img src="/Step02/img/bike.jpg" alt="">
+  <img src="/resource/img/cats.jpg" alt="">
+  <!-- 
+  절대 경로를 쓰는 경우 : 항상 동일한 위치의 파일을 사용할 경우(js, css, 아이콘이미지...)
+  상대 경로를 쓰는 이유 : 프로젝트 내에서 접근하려는 경로가 유동적인 경우, 배포 환경에 따라 달라질 때 사용
+  -->
+  <!-- 아이콘 파인더 사이트에서 홈 버튼 아이콘 하나 받아서 출력 -->
+  <img src="/resource/img/home.png" alt="홈 버튼">
+  <img src="https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" alt="">
+  <!-- base64 방식 -->
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAa1JREFUaEPtlrEuBVEQhr+rkIhEe2uNF/AGKqJSaKh4AVGJJxCNwgNQ0ShUN1TewAto1FqJRoE9spJ1c3dnzuzsynXn1GfOzvf/58y/A6Z8Daa8fwLgrx0MB/6zA8ndE2ABOAQ+uoDt6grNA5fATtn0FbAPvHtDdAGwCNwAG2PNPgBbwKsnhDfAEBgBqzVNPgKbwIsXhCfAMnAPrAjNPQPrxfV68oDwAkiKJ+WTA5qVHEhOJEdaLQ+ANeAWWMrs5A3YBu4y635tbwuwC1wAaepYVppKe8W1u7YUp5o2AAeF6mfAnPXjZd0ncFzkxanlHAvAT0AdWT7YUHNuCbxcgPGAcmYgO/ByAOoCyhsiK/C0AFJAeUOoA08DoA0obwhV4EkAuQHlDSEGXhOANaC8IRoDrw6gbUB5Q9QG3iQAr4DyhpgYeNIbqDaRDuhzqXpTbapEfgBkKKASV7Vp1hyQRNG+Jemcb11VmzIdkM4MgOo7ktSyjFHpzHAgHBBmeVyhUiBJiBijdTdJUi6m0MxOoYwfyf62Sve1v06MXwoAo3BuZeGAm5TGg8IBo3BuZV+YblExCMIsbAAAAABJRU5ErkJggg==" alt="">
+  <img src="img/book_address.svg" alt="홈 버튼">
+ 
 </body>
 </html>
