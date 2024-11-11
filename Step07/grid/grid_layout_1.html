@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그리드 레이아웃</title>
     <style>
-       * {
-        margin:0;
-        padding:0;
-       }
-    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        header {
+            grid-column: 1 / span 6;
+            grid-row: 1;
+            border: 1px solid black;
+            padding: 40px 0px;
+        }
+
+        nav {
+            grid-column: 1/ span 6;
+            grid-row: 2;
+            border: 1px solid black;
+        }
+        ul {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-evenly;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 20px;
+        }
+        section{
+            grid-column: 1/span 5;
+            grid-row: 3;
+            border: 1px solid black;
+        }
+        aside{
+            grid-column: 6 /span 1;
+            grid-row: 3;
+            border: 1px solid black;
+        }
+        .section_grid{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        article{
+            border: 1px solid black;
+            height: 200px;
+        }
+        footer{
+            border: 1px solid black;
+            padding: 20px 0px;
+            grid-row: 4;
+            grid-column: 1/span 6;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .logo{
+            border: 1px solid black;
+            height: 100px;
+            grid-column: 1 /span 1;
+            
+        }
+        .company{
+            border: 1px solid black;
+            height: 100px;
+            grid-column: 6 /span 1;
+            
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>헤더영역</h1>
-            
         </header>
         <nav>
             <ul>
@@ -65,4 +133,5 @@
         </footer>
     </div>
 </body>
+
 </html>

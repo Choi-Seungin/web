@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .img1{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: right;
+  }
+  .img2{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: left;
+  }
+  .img3{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .container{
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    flex-flow: column nowrap;
+  }
+  ul{
+    list-style-type: none;
+  }
+  header{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  ul{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  li{
+    padding: 0px 5px;
+  }
+
+  
+</style>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <img src="/img/icon.png" alt="" class="img1">
+        <span>OOO님이 로그인 하셨습니다.</span>
+        <ul>
+          <li><a href="">로그아웃</a></li>
+          <li>|</li>
+          <li><a href="">정보수정</a></li>
+        </ul>
+      </div>
+      <div>
+        <img src="/img/main_4.jpg" alt="">
+        <img src="/img/icon.png" alt="" class="img2">
+        <img src="/img/icon.png" alt="" class="img3">
+      </div>
+    </header>
+  </div>
+</body>
+</html>
