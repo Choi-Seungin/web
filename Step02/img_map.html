@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지맵</title>
+</head>
+<body>
+  <img src="img/image.png" usemap="#img_map">
+  <map name="img_map">
+    <!-- 사각형, 좌상단, 우하단 좌표값 -->
+    <area shape="rect" coords="40,67,533,377" href="https://www.naver.com">
+    <!-- 원, 중심좌표, 반지름 -->
+    <area shape="circle" coords="1060,221,130" href="https://www.daum.net">
+    <!--다각형은 좌표값1x,좌표값1y,좌표값2x,좌표값2y,.....-->
+    <area shape="poly" coords="755,504,906,619,851,807,657,807,602,619" href="https://www.google.com" target="_blank">
+  </map>
+  <hr>
+  <img src="img/img_map.png" usemap="#sns_map">
+  <map name="sns_map">
+    <area shape="rect" coords="398,34,514,61" href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+    <area shape="rect" coords="15,13,145,55" href="https://www.youtube.com/" target="_blank">
+    <area shape="rect" coords="392,97,520,225" href="https://x.com/?lang=ko" target="_blank">
+    <area shape="circle" coords="264,102,61" href="https://www.kakao.com/" target="_blank">
+    <area shape="circle" coords="83,150,63" href="https://www.naver.com/" target="_blank">
+  </map>
+</body>
+</html>

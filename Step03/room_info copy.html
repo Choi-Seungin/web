@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>펜션 상세정보</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      line-height: 1.6; 
+      padding: 20px; 
+      background: #f4f4f4; 
+    }
+    h2 {
+      color: #333; 
+      margin-bottom: 20px; 
+      font-size: 2rem;
+    }
+    img {
+      width: 100%; 
+      height: auto; 
+      margin-bottom: 10px; 
+    }
+    figcaption {
+      font-size: 0.9rem; 
+      color: #666; 
+      text-align: center; 
+      margin-bottom: 20px; 
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse; 
+      margin-top: 20px; 
+    }
+    thead > tr {
+      height: 100px;
+    }
+    td {
+      padding: 8px; 
+      border: 1px solid #ddd;
+      background: #ffffff; 
+    }
+    td:first-child {
+      width: 80%;
+    }
+    td:last-child {
+      width: 20%;
+    }
+    textarea {
+      width: 100%; 
+      height: 100px; 
+      padding: 10px; 
+      border: 1px solid #ccc;
+      margin-top: 10px; 
+    }
+    button {
+      width: 100%;
+      height: 100px;
+      background: #5cb85c; 
+      color: white; 
+      border: none; 
+      padding: 10px 20px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      display: inline-block;
+    }
+    button:hover {
+      background: #4cae4c; 
+    }
+    figure {
+      white-space: nowrap;
+      text-overflow: clip;
+      overflow: scroll;
+    }
+    figure > img {
+      width: 400px;
+      cursor: pointer; /* 이미지 클릭 가능 표시 */
+    }
+    .pagination {
+      margin-top: 20px;
+      text-align: center; /* 중앙 정렬 */
+    }
+    .pagination span, .pagination a {
+      margin: 0 5px;
+      cursor: pointer; /* 커서 변경 */
+      font-size: 1rem; /* 폰트 크기 조정 */
+      color: #007bff; /* 숫자 색 */
+    }
+    .pagination span:hover, .pagination a:hover {
+      text-decoration: underline; /* 호버 시 밑줄 */
+    }
+    .arrow {
+      font-weight: bold; /* 화살표 두껍게 */
+      font-size: 1.2rem; /* 화살표 크기 조정 */
+    }
+  </style>
+</head>
+<body>
+  <h2>OO펜션 상세 정보</h2>
+  <p>
+    <img id="mainImage" src="img/house_view_1.jpg" alt="펜션 이미지" />
+  </p>
+  <figure>
+    <figcaption>펜션 전경</figcaption>
+    <img src="img/house_view_1.jpg" alt="펜션 이미지1" onclick="changeMainImage(this)">
+    <img src="img/house_view_2.jpg" alt="펜션 이미지2" onclick="changeMainImage(this)">
+    <img src="img/house_view_3.jpg" alt="펜션 이미지3" onclick="changeMainImage(this)">
+    <img src="img/house_view_4.jpg" alt="펜션 이미지4" onclick="changeMainImage(this)">
+  </figure>
+  <table>
+    <thead>
+      <tr>
+        <td><textarea id="commentInput" placeholder="댓글을 입력하세요..."></textarea></td>
+        <td><button id="submitComment">댓글 등록</button></td>
+      </tr>
+    </thead>
+    <tbody id="commentSection">
+      <!-- 댓글 내용이 여기에 추가됩니다 -->
+    </tbody>
+  </table>
+
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    const comments = []; // 댓글을 저장할 배열
+    const commentsPerPage = 10; // 페이지당 댓글 수
+    const pagesPerGroup = 5; // 페이지 그룹 크기
+    let currentPage = 1; // 현재 페이지
+    let currentGroup = 1; // 현재 페이지 그룹
+
+    document.getElementById('submitComment').addEventListener('click', function() {
+      const commentInput = document.getElementById('commentInput');
+      const commentText = commentInput.value.trim();
+
+      // 댓글 내용이 비어있더라도 추가
+      comments.push(commentText); // 댓글 추가
+      commentInput.value = ''; // 입력 필드 초기화
+      renderComments(); // 댓글 렌더링
+    });
+
+    function changeMainImage(img) {
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = img.src; // 클릭한 이미지의 src로 변경
+    }
+
+    function renderComments() {
+      const commentSection = document.getElementById('commentSection');
+      const pagination = document.getElementById('pagination');
+      commentSection.innerHTML = ''; // 기존 댓글 지우기
+
+      // 현재 페이지에 해당하는 댓글만 가져오기
+      const start = (currentPage - 1) * commentsPerPage;
+      const end = start + commentsPerPage;
+      const currentComments = comments.slice(start, end);
+
+      // 댓글 렌더링
+      currentComments.forEach(comment => {
+        const newRow = document.createElement('tr');
+        const newCell = document.createElement('td');
+        newCell.colSpan = 2; // 댓글이 두 열을 차지하게 설정
+        newCell.textContent = comment; // 입력한 댓글 내용
+        newRow.appendChild(newCell);
+        commentSection.appendChild(newRow);
+      });
+
+      // 페이지네이션 렌더링
+      const totalPages = Math.ceil(comments.length / commentsPerPage);
+      const totalGroups = Math.ceil(totalPages / pagesPerGroup);
+      pagination.innerHTML = ''; // 기존 페이지 번호 지우기
+
+      // 이전 그룹 화살표
+      if (currentGroup > 1) {
+        const prevGroup = document.createElement('span');
+        prevGroup.textContent = '◀';
+        prevGroup.classList.add('arrow');
+        prevGroup.addEventListener('click', () => {
+          currentGroup--;
+          renderPagination(totalPages);
+        });
+        pagination.appendChild(prevGroup);
+      }
+
+      // 페이지 번호
+      for (let i = (currentGroup - 1) * pagesPerGroup + 1; i <= Math.min(currentGroup * pagesPerGroup, totalPages); i++) {
+        const pageSpan = document.createElement('span');
+        pageSpan.textContent = i;
+        pageSpan.addEventListener('click', () => {
+          currentPage = i; // 현재 페이지 설정
+          renderComments(); // 댓글 다시 렌더링
+        });
+        pagination.appendChild(pageSpan);
+      }
+
+      // 다음 그룹 화살표
+      if (currentGroup < totalGroups) {
+        const nextGroup = document.createElement('span');
+        nextGroup.textContent = '▶';
+        nextGroup.classList.add('arrow');
+        nextGroup.addEventListener('click', () => {
+          currentGroup++;
+          renderPagination(totalPages);
+        });
+        pagination.appendChild(nextGroup);
+      }
+    }
+
+    function renderPagination(totalPages) {
+      currentPage = (currentGroup - 1) * pagesPerGroup + 1; // 현재 그룹의 첫 페이지로 설정
+      renderComments(); // 댓글 다시 렌더링
+      renderComments(); // 페이지 번호 다시 렌더링
+    }
+  </script>
+</body>
+</html>

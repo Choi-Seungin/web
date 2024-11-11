@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경 이미지</title>
+  <style>
+    div{
+      width: 1000px;
+      height: 700px;
+      border: 20px dashed aqua;
+      padding: 50px;
+      background-image: url(/resource/img/cats.jpg);
+      /*
+        reoeat : 가로/세로 방향으로 반복  
+        no-reoeat : 반복을 안함  
+        reoeat-x : 가로 방향으로 반복  
+        reoeat-y : 세로 방향으로 반복  
+      */
+      background-repeat: no-repeat;
+      /* 
+        배경이미지 위치 잡을때 px, %단위로 좌표 설정
+        키워드를 이용해서 top center bottom left right
+      */
+      background-position: center;
+      /* 
+        배경이미지 사이즈 가로 세로 픽셀, %로 줄 수 있음
+        cover : 가로 세로 비율 중 작은 것을 기준으로 꽉 채움
+                벗어난 이미지는 자름
+        contain : 가로 세로 비율 중 큰것을 기준으로 꽉 채움
+                이미지가 잘리지는 않지만 꽉 채우지 못함
+      */
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
