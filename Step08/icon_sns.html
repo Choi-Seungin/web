@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sns_icon</title>
+</head>
+<style>
+  .sns_bar{
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+  }
+  .sns_bar a:link, .sns_bar a:visited{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url(/resource/img/sns_icon_pack.png);
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 2px gray;
+  }
+  .kakao{
+    background-position-y: -144px;
+  }
+  .gogle{
+    background-position-y: -48px;
+  }
+  .youtube{
+    background-position-y: -96px;
+  }
+  .twitter{
+    background-position-y: -192px;
+  }
+  .facebook{
+    background-position-y: 0px;
+  }
+  .telegram{
+    background-position-y: -240px;
+  }
+  .sns_bar a:link:hover{
+    background-position-x: -48px;
+  }
+</style>
+<body>
+  <ul class="sns_bar">
+    <li><a href="" class="kakao"></a></li>
+    <li><a href="" class="gogle"></a></li>
+    <li><a href="" class="youtube"></a></li>
+    <li><a href="" class="twitter"></a></li>
+    <li><a href="" class="facebook"></a></li>
+    <li><a href="" class="telegram"></a></li>
+  </ul>
+</body>
+</html>

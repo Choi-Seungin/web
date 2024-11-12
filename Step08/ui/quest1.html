@@ -40,33 +40,49 @@
   header{
     display: flex;
     flex-flow: row wrap;
+    justify-content: end;
   }
-  ul{
+  header ul{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
   }
   li{
     padding: 0px 5px;
   }
-
+  header div{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-flow: row nowrap;
+    background-image: url(/resource/img/main_4.jpg);
+    background-repeat: no-repeat;
+    justify-content: space-between;
+    align-items: center;
+  }
+  button{
+    height: 50px;
+    opacity: 0.5;
+  }
+  button:hover{
+    opacity: 1;
+  }
   
 </style>
 <body>
   <div class="container">
     <header>
-      <div>
-        <img src="/img/icon.png" alt="" class="img1">
+        <img src="/resource/img/icon.png alt="" class="img1">
+        <nav>
         <span>OOO님이 로그인 하셨습니다.</span>
         <ul>
           <li><a href="">로그아웃</a></li>
           <li>|</li>
           <li><a href="">정보수정</a></li>
         </ul>
-      </div>
+      </nav>
       <div>
-        <img src="/img/main_4.jpg" alt="">
-        <img src="/img/icon.png" alt="" class="img2">
-        <img src="/img/icon.png" alt="" class="img3">
+        <button><img src="/resource/img/icon.png" alt="" class="img2"></button>
+        <button><img src="/resource/img/icon.png" alt="" class="img3"></button>
       </div>
     </header>
   </div>
