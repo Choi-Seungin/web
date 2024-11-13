@@ -2,7 +2,7 @@
 .container{
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
 }
 .item{
   width: 25%;
