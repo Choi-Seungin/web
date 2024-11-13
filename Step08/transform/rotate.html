@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-image: url(/resource/img/cat.jpg);
+    background-size: 100% 100%;
+  }
+  .container{
+    width: 100%;
+    margin: 300px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 100px;
+    background-image: none;
+    justify-content: center;
+  }
+  .t1{
+    transform: rotateX(45deg);
+    animation: ani1 1s linear infinite;
+  }
+  .t2{
+    transform: rotateY(45deg);
+    animation: ani1 2s linear infinite;
+  }
+  .t3{
+    transform: rotateZ(45deg) scale(1.5, 2);
+    animation: ani1 3s linear infinite;
+  }
+  .t4{
+    /* xyz 축의 벡터를 넣고 회전각도 지정 */
+    transform: rotate3d(1,1,0,45deg);
+    animation: ani1 4s linear infinite;
+  }
+  @keyframes ani1{
+    from{
+      transform: rotateZ(0deg);
+    }
+    to{
+      transform: rotate3d(1,1,1,360deg);
+  }
+  }
+  .t5{
+    animation: ani1 5ms linear infinite;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="t1"></div>
+    <div class="t2"></div>
+    <div class="t3"></div>
+    <div class="t4"></div>
+    <div class="t5"></div>
+  </div>
+</body>
+</html>

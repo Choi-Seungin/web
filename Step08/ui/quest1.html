@@ -10,23 +10,28 @@
     margin: 0;
     padding: 0;
   }
-  .img1{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    object-position: right;
+  header > a{
+    background-image: url(/resource/img/icon.png);
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
   }
-  .img2{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    object-position: left;
+  .profile{
+    background-position: -96px;
   }
-  .img3{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    object-position: center;
+  div > button{
+    width: 48px;
+    height: 48px;
+    background-image: url(/resource/img/icon.png);
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    border: none;
+  }
+  .left{
+    background-position: 0px;
+  }
+  .right{
+    background-position: -48px;
   }
   .container{
     width: 1200px;
@@ -41,6 +46,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: end;
+    background-color:#e9e9e9;
   }
   header ul{
     display: flex;
@@ -49,19 +55,15 @@
   li{
     padding: 0px 5px;
   }
-  header div{
+  header .main_img{
     width: 100%;
     height: 400px;
-    display: flex;
-    flex-flow: row nowrap;
     background-image: url(/resource/img/main_4.jpg);
     background-repeat: no-repeat;
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-  }
-  button{
-    height: 50px;
-    opacity: 0.5;
   }
   button:hover{
     opacity: 1;
@@ -71,7 +73,9 @@
 <body>
   <div class="container">
     <header>
-        <img src="/resource/img/icon.png alt="" class="img1">
+        <div>
+          <a href="" class="profile"></a>
+        </div>
         <nav>
         <span>OOO님이 로그인 하셨습니다.</span>
         <ul>
@@ -80,9 +84,9 @@
           <li><a href="">정보수정</a></li>
         </ul>
       </nav>
-      <div>
-        <button><img src="/resource/img/icon.png" alt="" class="img2"></button>
-        <button><img src="/resource/img/icon.png" alt="" class="img3"></button>
+      <div class="main_img">
+        <button class="left"></button>
+        <button class="right"></button>
       </div>
     </header>
   </div>
